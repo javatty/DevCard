@@ -8,19 +8,30 @@ namespace DevCard_MVC.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController()
-        {
-          
-        }
 
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
-
+        [HttpGet]
         public IActionResult Contact()
         {
-            return View();
+            var model = new Contact();
+            return View(model);
+        }
+
+        //[HttpPost]
+        //public JsonResult Contact(IFormCollection form)
+        //{
+        //    var name=form["name"];
+        //    return Json(Ok());
+        //}
+        [HttpPost]
+        public JsonResult Contact(Contact form)
+        {
+            Console.WriteLine(form.ToString());
+            return Json(Ok());
         }
 
     
